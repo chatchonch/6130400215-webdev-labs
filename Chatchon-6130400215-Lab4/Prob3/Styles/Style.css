@@ -1,0 +1,43 @@
+p {
+    margin: 0 150px;
+    padding: 10px;
+}
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+}
+
+tr {
+    
+    height: 30px;
+}
+
+col {
+    width: 100px;
+}
+
+.textleft {
+    text-align: left;
+}
+.textright {
+    text-align: right;
+}
+
+.num {
+    width: 30px;
+}
+
+
+.ncase {
+    width: 100px;
+    background-color: yellow;
+}
+
+.ndeath {
+    width: 100px;
+    background-color: red;
+}
