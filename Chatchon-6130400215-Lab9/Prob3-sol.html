@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+
+    <body>
+        <h1>Reading Students Information</h1>
+
+        <ol> </ol>
+        
+
+        <script>
+            
+            var displayList = document.querySelector("ol");
+            var url = "students.json";
+
+            fetch(url).then(respone => {
+                return respone.json();
+            }).then(data => {
+                people = data.wclass
+                for (var person of people) {
+                     var display = document.createElement("li");
+                     display.innerHTML += 
+                     person.student['@attributes'].id + " " + "<b>" +
+                     person.student.name + "</b>" + 
+                     " has skills " + "<i>" + person.student.skill + + "</i>";
+                     displayList.appendChild(display);
+                
+                     
+                };
+            });
+
+        </script>
+    </body>
+</html>

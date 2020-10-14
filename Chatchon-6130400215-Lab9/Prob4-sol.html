@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+
+    <body>
+        
+        <ol> </ol>
+        
+
+        <script>
+            
+            var displayList = document.querySelector("ol");
+            var url = "places.json";
+
+            fetch(url).then(respone => {
+                return respone.json();
+            }).then(data => {
+                people = data.results;
+                for (var place of people) {
+                    
+                     var display = document.createElement("li");
+                     display.innerHTML = "<span style = 'color: blue;' >" +
+                     "name = " +
+                     place.name + "</span>" + "<br>" +
+                     "<span style = 'color: green;' >" +
+                     "location = " + 
+                     place.geometry.location.lat + " " + 
+                     place.geometry.location.lng +
+                     "</span>";
+                     displayList.appendChild(display);
+                
+                     
+                };
+            });
+
+        </script>
+    </body>
+</html>

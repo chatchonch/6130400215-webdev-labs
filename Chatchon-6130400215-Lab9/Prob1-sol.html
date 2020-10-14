@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        var unList = document.querySelector("ul");
+        var getButton = document.querySelector("button");
+        var countItem = document.createElement("p");
+        var counter = 0;
+        getButton.addEventListener("click", function() {
+            var getIntput = document.getElementById("item").value;
+            var listItem = document.createElement("li");
+            var cancleButton = document.createElement("button")
+            cancleButton.textContent  = "Delete";
+            listItem.innerHTML += getIntput;
+            listItem.appendChild(cancleButton);
+            unList.appendChild(listItem); 
+            ++counter;
+            cancleButton.addEventListener("click", function() {
+                unList.removeChild(listItem);
+                listItem.removeChild(cancleButton);
+                --counter;
+                countItem.textContent = "The list has " + counter + " items.";
+                document.body.appendChild(countItem);
+                if (counter <= 0) {
+                    countItem.textContent = "";
+                    document.body.appendChild(countItem);
+                } else if (counter == 1) {
+                    countItem.textContent = "The list has " + counter + " item.";
+                    document.body.appendChild(countItem);
+                }
+            });
+            if (counter > 1) {
+                countItem.textContent = "The list has " + counter + " items.";
+                document.body.appendChild(countItem);
+            } else {
+                countItem.textContent = "The list has " + counter + " item.";
+                document.body.appendChild(countItem);
+            }
+        
+
+        });
+       
+    </script>
+  </body>
+</html>
